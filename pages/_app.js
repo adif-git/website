@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
     const WebFontLoader = require('webfontloader');
     WebFontLoader.load({
       google: {
-        families: ['Source Sans Pro:900,600,400', 'Chewy'],
+        families: ['Source Sans Pro:900,600,400'],
       },
     });
   }, []);
