@@ -1,7 +1,10 @@
-import React from 'react';
 import Link from 'next/link';
 import path from '../path';
+import { useRouter } from 'next/router';
+
 export default function Header() {
+  const router = useRouter();
+
   return (
     <nav className="h-28 w-screen z-50">
       <div className=" w-full px-20">
@@ -24,7 +27,12 @@ export default function Header() {
               </svg>
             </div>
             <div className="h-full flex items-center">
-              <h1 className="text-slate-50 text-4xl font-bold">ADIF.</h1>
+              <h1 className="text-slate-50 text-4xl font-bold mr-10">ADIF</h1>
+              <Link href={router.pathname}>
+                <a className="text-slate-600 text-4xl font-bold uppercase hover:text-slate-200 ease-in duration-200">
+                  {router.pathname === '/' ? '/HOMEPAGE' : router.pathname}
+                </a>
+              </Link>
             </div>
           </a>
         </Link>
