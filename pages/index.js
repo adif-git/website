@@ -4,6 +4,7 @@ import HomeCard from '../components/Home/HomeCard';
 import content from '../components/Home/content-card';
 import Link from 'next/link';
 import path from '../components/path';
+import Footer from '../components/Footer/Footer';
 
 export default function Home() {
   return (
@@ -36,6 +37,9 @@ export default function Home() {
               </Link>
             </div>
           </div>
+        </div>
+        <div className="flex">
+          <Footer />
         </div>
       </main>
     </div>
