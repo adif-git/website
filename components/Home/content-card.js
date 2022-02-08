@@ -1,15 +1,18 @@
-import { UserIcon, ChipIcon, ChatIcon } from '@heroicons/react/outline';
+import { UserIcon, CodeIcon, ChatIcon } from '@heroicons/react/outline';
+
+const styles = 'h-10 w-10 md:h-40 md:w-40';
+
 const content = {
   profile: {
-    image: <UserIcon className="h-48 w-48" />,
+    image: <UserIcon className={styles} />,
     title: 'Profile',
   },
   projects: {
-    image: <ChipIcon className="h-48 w-48" />,
+    image: <CodeIcon className={styles} />,
     title: 'Projects',
   },
   contact: {
-    image: <ChatIcon className="h-48 w-48" />,
+    image: <ChatIcon className={styles} />,
     title: 'Contact',
   },
 };
