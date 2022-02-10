@@ -15,6 +15,10 @@ const others = [
     src: 'https://img.icons8.com/color/48/000000/office-365.png',
     name: 'Microsoft Office',
   },
+  {
+    src: 'https://img.icons8.com/fluent/48/000000/visual-studio-code-2019.png',
+    name: 'Visual Studio Code',
+  },
 ];
 
 export default others;
