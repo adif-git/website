@@ -16,12 +16,12 @@ export default function profile() {
           <Header />
         </div>
         <div className="flex bg-slate-50">
-          <div className="max-w-7xl mx-auto w-full py-16">
+          <div className="max-w-7xl mx-auto w-full p-16">
             <Introduction />
           </div>
         </div>
         <div className="flex-auto">
-          <div className="max-w-7xl mx-auto w-full py-16">
+          <div className="max-w-7xl mx-auto w-full p-16">
             <Skills />
           </div>
         </div>

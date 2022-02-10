@@ -21,7 +21,7 @@ export default function Skills() {
         </span>{' '}
         I Used & Currently Learning...
       </h1>
-      <div className="flex flex-row flex-wrap justify-center">
+      <div className="flex flex-col md:flex-row flex-wrap justify-center ">
         <Skill name="Programming" list={programming} Icon={CodeIcon} />
         <Skill name="Web Development" list={webdev} Icon={GlobeAltIcon} />
         <Skill name="Embedded Systems" list={embedded} Icon={ChipIcon} />
