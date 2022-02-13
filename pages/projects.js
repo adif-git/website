@@ -4,6 +4,8 @@ import Header from '../components/Header/Header';
 import { API_URL } from '../config/index';
 import Projects from '../components/Projects/Projects';
 import Footer from '../components/Footer/Footer';
+import Link from 'next/link';
+import path from '../components/path';
 
 export default function projects({ projects }) {
   return (
@@ -18,7 +20,21 @@ export default function projects({ projects }) {
         </div>
         <div className="flex-auto bg-slate-200">
           <div className="max-w-7xl mx-auto w-full py-16 px-5">
-            <Projects projects={projects} />
+            {projects === null ? (
+              <div className="text-center font-semibold ">
+                <h2 className="text-slate-700 text-3xl mb-5">
+                  No projects to show
+                </h2>
+                <p className="text-slate-400 text-xl">
+                  Return to{' '}
+                  <Link href={path.home}>
+                    <a className="text-indigo-500">home</a>
+                  </Link>
+                </p>
+              </div>
+            ) : (
+              <Projects projects={projects} />
+            )}
           </div>
         </div>
         <div className="flex">

@@ -48,7 +48,7 @@ export default function Project({ attributes }) {
               </a>
             </Link>
           ) : null}
-          {attributes.link_github !== '' ? (
+          {attributes.link_github !== null ? (
             <Link href={attributes.link_github} className="">
               <a className="bg-blue-500 px-5 rounded-full text-slate-50 font-semibold">
                 GitHub
