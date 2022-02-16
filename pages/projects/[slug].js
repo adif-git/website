@@ -26,13 +26,13 @@ export default function ProjectPage({ project: { attributes } }) {
         <div className="flex bg-slate-900">
           <Header />
         </div>
-        <div className="flex flex-col flex-auto max-w-7xl mx-auto w-full p-20 my-10 rounded-xl bg-slate-50">
-          <div className="">
+        <div className="flex flex-col flex-auto max-w-7xl mx-auto w-full p-10 md:p-20 md:my-10 rounded-xl bg-slate-50">
+          <div className="text-center md:text-left">
             <h1 className="font-bold text-6xl mb-5">{attributes.title}</h1>
             <p className="font-semibold text-indigo-500 mb-8 text-xl">
               {attributes.category.data.attributes.name}
             </p>
-            <p className="text-md font-semibold text-left italic border-b-2 border-slate-300 pb-2 text-slate-600">
+            <p className="text-md font-semibold italic border-b-2 border-slate-300 pb-2 text-slate-600">
               Last updated: {formatDate(attributes.updatedAt)}
             </p>
           </div>
