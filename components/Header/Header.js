@@ -12,7 +12,7 @@ export default function Header() {
     <nav className="w-screen z-50 bg-slate-900 border-b-4 border-gray-800/50">
       <div className="flex flex-row w-full max-w-7xl mx-auto px-5 py-7">
         <Link href={path.home}>
-          <a className="flex justify-center md:justify-start">
+          <a className="flex justify-center md:justify-start mr-3 md:mr-10">
             <Logo />
           </a>
         </Link>
