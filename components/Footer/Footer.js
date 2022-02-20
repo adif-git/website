@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <div
       className={`w-full h-18 px-20 py-7 ${
-        router.pathname === '/'
+        router.pathname === '/' || router.pathname === '/contacts'
           ? 'bg-slate-900 text-slate-500 border-t-2 border-slate-800'
-          : 'bg-slate-300 text-slate-500'
+          : 'bg-slate-200 text-blue-900'
       }`}
     >
       <p className="font-bold text-lg text-right">Created by: Adif, 2022</p>
