@@ -15,7 +15,7 @@ import others from './skill-list/others';
 export default function Skills() {
   return (
     <div>
-      <h1 className="font-bold text-4xl text-center text-slate-800 mb-24">
+      <h1 className="leading-relaxed font-bold text-4xl text-center text-slate-800 mb-24">
         <span className="underline decoration-solid decoration-4 decoration-sky-500 underline-offset-8">
           Tech Stack
         </span>{' '}
