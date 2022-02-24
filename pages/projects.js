@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { API_URL } from '../config/index';
-import Projects from '../components/Projects/Projects';
+import ProjectCard from '../components/Projects/ProjectCard';
 import path from '../components/path';
 import Layout from '../components/Layout';
 import Container from '../components/Container';
@@ -24,7 +24,11 @@ export default function projects({ projects }) {
               </p>
             </div>
           ) : (
-            <Projects projects={projects} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {projects.map(({ id, attributes }) => {
+                return <ProjectCard key={id} attributes={attributes} />;
+              })}
+            </div>
           )}
         </Container>
       </Layout>
