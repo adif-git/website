@@ -1,16 +1,19 @@
-import { UserIcon, ChipIcon, ChatIcon } from '@heroicons/react/outline';
+import { FiCode, FiMail, FiUser } from 'react-icons/fi';
+
+const styles = 'h-10 w-10 md:h-36 md:w-36';
+
 const content = {
   profile: {
-    image: <UserIcon className="h-48 w-48" />,
+    image: <FiUser className={styles} />,
     title: 'Profile',
   },
   projects: {
-    image: <ChipIcon className="h-48 w-48" />,
+    image: <FiCode className={styles} />,
     title: 'Projects',
   },
-  contact: {
-    image: <ChatIcon className="h-48 w-48" />,
-    title: 'Contact',
+  contacts: {
+    image: <FiMail className={styles} />,
+    title: 'Contacts',
   },
 };
 

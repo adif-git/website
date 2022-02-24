@@ -1,13 +1,9 @@
-import React from 'react';
-
 export default function HomeCard({ content }) {
   return (
-    <div className="flex justify-center px-10">
-      <div className="p-14 border-4 border-slate-700 hover:border-0 rounded-lg hover:scale-110 hover:bg-slate-50 text-slate-600 hover:animate-pulse ease-in duration-300">
-        <div className="mb-10">{content.image}</div>
-        <div className="text-4xl font-bold text-center uppercase">
-          {content.title}
-        </div>
+    <div className="flex flex-row md:flex-col justify-center align-center text-slate-400 md:hover:text-blue-900 my-5 md:m-2 p-2 md:p-10 border-4 border-slate-400 rounded-2xl md:hover:scale-110 md:hover:bg-slate-50 ease-in duration-200">
+      <div className="mr-5 md:mx-auto md:mb-10">{content.image}</div>
+      <div className="my-auto text-2xl md:text-4xl font-bold md:text-center uppercase">
+        {content.title}
       </div>
     </div>
   );
