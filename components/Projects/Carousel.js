@@ -9,6 +9,7 @@ export default function CarouselContainer({ img }) {
       infiniteLoop={true}
       showStatus={false}
       swipeable={true}
+      showThumbs={false}
       renderArrowPrev={(onClickHandler, hasPrev) =>
         hasPrev && (
           <button

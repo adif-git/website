@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ProjectLink from './ProjectLink';
 
 export default function Project({ attributes }) {
   const formatDate = (date) => {
@@ -39,23 +40,8 @@ export default function Project({ attributes }) {
           Last updated: {formatDate(attributes.updatedAt)}
         </p>
       </div>
-      <div className="flex flex-row mt-1 border-t-2 border-slate-800/30 pt-2">
-        <div className="flex flex-auto  text-slate-500">
-          {attributes.link_project !== null ? (
-            <Link href={attributes.link_project} className="">
-              <a className="mr-2 bg-blue-700 px-5 rounded-full text-slate-50 font-semibold">
-                Link
-              </a>
-            </Link>
-          ) : null}
-          {attributes.link_github !== null ? (
-            <Link href={attributes.link_github} className="">
-              <a className="bg-blue-500 px-5 rounded-full text-slate-50 font-semibold">
-                GitHub
-              </a>
-            </Link>
-          ) : null}
-        </div>
+      <div className="flex flex-row mt-1 justify-between border-t-2 border-slate-800/30 pt-2">
+        <ProjectLink attributes={attributes} size={22} />
         <div className="flex my-auto">
           <Link href={`/projects/${attributes.slug}`}>
             <a className="font-semibold text-slate-900">Read More...</a>
