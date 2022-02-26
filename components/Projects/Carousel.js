@@ -61,6 +61,8 @@ export default function CarouselContainer({ img }) {
               width={1000}
               height={600}
               className="rounded-xl"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP0Do2vBwADcgGA2WOZUwAAAABJRU5ErkJggg=="
+              placeholder="blur"
             />
           </div>
         );

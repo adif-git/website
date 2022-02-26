@@ -22,6 +22,8 @@ export default function Project({ attributes }) {
           height={120}
           objectFit="cover"
           className="rounded-xl"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP0Do2vBwADcgGA2WOZUwAAAABJRU5ErkJggg=="
+          placeholder="blur"
         />
       </div>
       <div className="flex flex-col text-center">
