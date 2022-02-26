@@ -14,7 +14,7 @@ const formatDate = (date) => {
   });
 };
 
-export default function ProjectPage({ project: { attributes } }) {
+export default function ProjectPage({ projects: { attributes } }) {
   return (
     <>
       <Layout title={`${attributes.title} | Adif`}>
@@ -59,32 +59,13 @@ export default function ProjectPage({ project: { attributes } }) {
   );
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(`${API_URL}/api/projects`);
-  const projects = await res.json();
-
-  const paths = projects.data.map((project) => ({
-    params: {
-      slug: project.attributes.slug,
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params: { slug } }) {
+export async function getServerSideProps({ params: { slug } }) {
   const res = await fetch(
     `${API_URL}/api/projects?populate=*&filters[slug][$eq]=${slug}`
   );
-
-  const project = await res.json();
+  const projects = await res.json();
 
   return {
-    props: {
-      project: project.data[0],
-    },
+    props: { projects: projects.data[0] },
   };
 }
