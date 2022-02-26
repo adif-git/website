@@ -6,6 +6,7 @@ import { CgChevronLeftO, CgChevronRightO } from 'react-icons/cg';
 export default function CarouselContainer({ img }) {
   return (
     <Carousel
+      className="mb-10"
       infiniteLoop={true}
       showStatus={false}
       swipeable={true}

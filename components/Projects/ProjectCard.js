@@ -32,15 +32,15 @@ export default function Project({ attributes }) {
           {attributes.category.data.attributes.name}
         </p>
       </div>
-      <div className="flex-auto border-t-2 border-slate-800/30 pt-2">
+      <div className="flex-auto border-t-2 border-slate-700/20 py-5">
         <p className="text-justify">{attributes.description}</p>
       </div>
-      <div className="flex mt-5">
+      <div className="flex pt-2 border-t-2 border-slate-700/20">
         <p className="text-xs font-semibold text-slate-400 text-left italic">
           Last updated: {formatDate(attributes.updatedAt)}
         </p>
       </div>
-      <div className="flex flex-row mt-1 justify-between border-t-2 border-slate-800/30 pt-2">
+      <div className="flex flex-row mt-2 justify-between pt-2">
         <ProjectLink attributes={attributes} size={22} />
         <div className="flex my-auto">
           <Link href={`/projects/${attributes.slug}`}>
