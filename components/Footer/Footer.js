@@ -28,7 +28,7 @@ export default function Footer() {
           Made by <span className="text-sky-500">Adif</span> with Next.js,
           Tailwind, & Strapi @ 2022
         </div>
-        <div className="flex flex-row my-auto justify-center my-5 md:m-0">
+        <div className="flex flex-row my-auto justify-center mt-5 md:m-0">
           <Link href="https://github.com/adif-git">
             <a target="_blank" rel="noopener noreferrer">
               <div className={stylesIcon}>
