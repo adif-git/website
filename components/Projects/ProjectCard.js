@@ -34,7 +34,7 @@ export default function Project({ attributes }) {
           {attributes.category.data.attributes.name}
         </p>
       </div>
-      <div className="flex-auto border-t-2 border-slate-700/20 py-5">
+      <div className="flex-auto border-t-2 border-slate-700/20 py-5 px-2">
         <p className="text-justify">{attributes.description}</p>
       </div>
       <div className="flex pt-2 border-t-2 border-slate-700/20">
@@ -46,7 +46,9 @@ export default function Project({ attributes }) {
         <ProjectLink attributes={attributes} size={22} />
         <div className="flex my-auto">
           <Link href={`/projects/${attributes.slug}`}>
-            <a className="font-semibold text-slate-900">Read More...</a>
+            <a className="pl-2 font-semibold text-slate-900 hover:text-indigo-600 hover:border-l-2 hover:border-indigo-600 ease-in duration-100">
+              Read More
+            </a>
           </Link>
         </div>
       </div>
