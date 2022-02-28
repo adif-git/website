@@ -36,7 +36,7 @@ export default function projects({ projects }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`${API_URL}/api/projects?populate=*`);
   const projects = await res.json();
 
