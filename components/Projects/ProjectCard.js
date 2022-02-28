@@ -16,10 +16,10 @@ export default function Project({ attributes }) {
     <div className="flex flex-col p-5 mb-5 bg-slate-100 rounded-xl drop-shadow-lg">
       <div className="flex mb-5 justify-center">
         <Image
-          src={attributes.img.data[0].attributes.formats.thumbnail.url}
+          src={attributes.img.data[0].attributes.formats.small.url}
           alt={attributes.title}
-          width={210}
-          height={120}
+          width={500}
+          height={300}
           objectFit="cover"
           className="rounded-xl"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP0Do2vBwADcgGA2WOZUwAAAABJRU5ErkJggg=="
