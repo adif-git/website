@@ -22,16 +22,13 @@ export default function Footer() {
   return (
     <div className={stylesBG}>
       <div
-        className={`flex flex-row justify-between w-full h-18 px-5 py-6 max-w-7xl mx-auto`}
+        className={`flex flex-col md:flex-row justify-between w-full h-18 px-5 py-6 max-w-7xl mx-auto`}
       >
-        <div className="flex flex-row my-auto">
-          <CgSmartphoneChip size={20} className="mr-2" />
-          <div className="text-md font-bold mr-3">
-            Made by <span className="text-sky-500">Adif</span> with Next.js,
-            Tailwind, & Strapi @ 2022
-          </div>
+        <div className="text-md font-bold text-center">
+          Made by <span className="text-sky-500">Adif</span> with Next.js,
+          Tailwind, & Strapi @ 2022
         </div>
-        <div className="flex flex-row my-auto">
+        <div className="flex flex-row my-auto justify-center my-5 md:m-0">
           <Link href="https://github.com/adif-git">
             <a target="_blank" rel="noopener noreferrer">
               <div className={stylesIcon}>
