@@ -59,7 +59,7 @@ export default function ProjectPage({ projects: { attributes } }) {
   );
 }
 
-export async function getServerSideProps({ params: { slug } }) {
+export async function getStaticProps({ params: { slug } }) {
   const res = await fetch(
     `${API_URL}/api/projects?populate=*&filters[slug][$eq]=${slug}`
   );
@@ -67,5 +67,6 @@ export async function getServerSideProps({ params: { slug } }) {
 
   return {
     props: { projects: projects.data[0] },
+    revalidate: 60,
   };
 }
