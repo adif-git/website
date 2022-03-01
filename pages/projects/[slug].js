@@ -59,6 +59,22 @@ export default function ProjectPage({ projects: { attributes } }) {
   );
 }
 
+export async function getStaticPaths() {
+  const res = await fetch(`${API_URL}/api/projects`);
+  const projects = await res.json();
+
+  const paths = projects.data.map((project) => ({
+    params: {
+      slug: project.attributes.slug,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
 export async function getStaticProps({ params: { slug } }) {
   const res = await fetch(
     `${API_URL}/api/projects?populate=*&filters[slug][$eq]=${slug}`
