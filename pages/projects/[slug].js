@@ -1,4 +1,5 @@
 import { IoConstructOutline } from 'react-icons/io5';
+import ReactMarkdown from 'react-markdown';
 
 import { API_URL } from '../../config/index';
 import Layout from '../../components/Layout';
@@ -42,8 +43,10 @@ export default function ProjectPage({ projects: { attributes } }) {
             <CarouselContainer img={attributes.img.data} />
           </div>
           {attributes.article ? (
-            <div className="">
-              <p className="text-lg text-justify">{attributes.article}</p>
+            <div className="w-full">
+              <article className="prose prose-slate lg:prose-xl max-w-none">
+                <ReactMarkdown>{attributes.article}</ReactMarkdown>
+              </article>
             </div>
           ) : (
             <div className="flex flex-col items-center w-full p-24">
