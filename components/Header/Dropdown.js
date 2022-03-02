@@ -13,7 +13,11 @@ export default function Dropdown({ route }) {
           <>
             <Menu.Button className="inline-flex justify-center px-4 py-2 text-4xl font-bold text-slate-600 md:hover:text-slate-50 uppercase ease-in duration-100">
               <div className="hidden md:inline-block">
-                {route === '/' ? 'homepage' : route.split('/')[1]}
+                {route === '/'
+                  ? 'homepage'
+                  : route === '/404'
+                  ? null
+                  : route.split('/')[1]}
               </div>
               <CgChevronDown className="md:mx-2 my-auto bg-slate-100 md:bg-transparent rounded-full md:h-10 md:w-10" />
             </Menu.Button>

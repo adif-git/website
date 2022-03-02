@@ -1,4 +1,5 @@
 import { IoConstructOutline } from 'react-icons/io5';
+import ReactMarkdown from 'react-markdown';
 
 import { API_URL } from '../../config/index';
 import Layout from '../../components/Layout';
@@ -42,8 +43,10 @@ export default function ProjectPage({ projects: { attributes } }) {
             <CarouselContainer img={attributes.img.data} />
           </div>
           {attributes.article ? (
-            <div className="">
-              <p className="text-lg text-justify">{attributes.article}</p>
+            <div className="w-full">
+              <article className="prose prose-slate lg:prose-xl max-w-none">
+                <ReactMarkdown>{attributes.article}</ReactMarkdown>
+              </article>
             </div>
           ) : (
             <div className="flex flex-col items-center w-full p-24">
@@ -59,7 +62,23 @@ export default function ProjectPage({ projects: { attributes } }) {
   );
 }
 
-export async function getServerSideProps({ params: { slug } }) {
+export async function getStaticPaths() {
+  const res = await fetch(`${API_URL}/api/projects`);
+  const projects = await res.json();
+
+  const paths = projects.data.map((project) => ({
+    params: {
+      slug: project.attributes.slug,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params: { slug } }) {
   const res = await fetch(
     `${API_URL}/api/projects?populate=*&filters[slug][$eq]=${slug}`
   );
@@ -67,5 +86,6 @@ export async function getServerSideProps({ params: { slug } }) {
 
   return {
     props: { projects: projects.data[0] },
+    revalidate: 60,
   };
 }

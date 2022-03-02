@@ -1,16 +1,16 @@
-import { CgSmartphoneChip } from 'react-icons/cg';
+import Image from 'next/image';
 
 export default function Logo() {
   return (
-    <div className="flex items-center">
-      <div className="flex mr-5">
-        <CgSmartphoneChip size={40} className="text-slate-50" />
-      </div>
-      <blockquote className="text-slate-50 text-4xl font-bold text-center text-slate-900">
-        <span className="px-2 before:block before:absolute before:-inset-1 before:-skew-y-6 before:bg-gradient-to-r before:from-blue-500 before:to-sky-500 relative inline-block">
-          <span className="relative">ADIF</span>
-        </span>
-      </blockquote>
+    <div className="flex translate-x-5 md:translate-x-8 md:border-r-4 md:border-sky-400">
+      <Image
+        src="/Logo.png"
+        alt="..."
+        width={100}
+        height={50}
+        objectFit="scale-down"
+        className="opacity-100 md:opacity-50 md:hover:opacity-100 md:hover:scale-125 ease-in duration-100"
+      />
     </div>
   );
 }
