@@ -44,7 +44,7 @@ export default function ProjectPage({ projects: { attributes } }) {
           </div>
           {attributes.article ? (
             <div className="w-full">
-              <article className="prose prose-slate lg:prose-xl max-w-none">
+              <article className="prose prose-slate lg:prose-xl max-w-none prose-p:text-justify">
                 <ReactMarkdown>{attributes.article}</ReactMarkdown>
               </article>
             </div>
