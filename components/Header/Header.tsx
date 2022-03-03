@@ -5,7 +5,7 @@ import Dropdown from './Dropdown';
 import Logo from './Logo';
 import path from '../path';
 
-export default function Header() {
+const Header: React.FC = () => {
   const router = useRouter();
 
   return (
@@ -22,4 +22,6 @@ export default function Header() {
       </div>
     </nav>
   );
-}
+};
+
+export default Header;

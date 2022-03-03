@@ -1,6 +1,4 @@
-import React from 'react';
-
-export default function Introduction() {
+const Introduction: React.FC = () => {
   return (
     <div className="px-5">
       <h1 className="font-bold text-4xl text-center text-slate-900 underline decoration-solid decoration-4 decoration-sky-500 underline-offset-8 mb-16">
@@ -24,4 +22,6 @@ export default function Introduction() {
       </p>
     </div>
   );
-}
+};
+
+export default Introduction;

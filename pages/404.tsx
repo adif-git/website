@@ -1,9 +1,12 @@
+import { AiOutlineQuestion } from 'react-icons/ai';
+import { NextPage } from 'next';
+
 import Link from 'next/link';
 import Layout from '../components/Layout';
-import Container from '../components/Container';
+import Container from '../components/Container'
 import path from '../components/path';
-import { AiOutlineQuestion } from 'react-icons/ai';
-export default function NotFoundPage() {
+
+const NotFoundPage: NextPage = () => {
   return (
     <Layout title="Page Not Found | Adif">
       <Container>
@@ -28,3 +31,5 @@ export default function NotFoundPage() {
     </Layout>
   );
 }
+
+export default NotFoundPage

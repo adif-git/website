@@ -1,3 +1,4 @@
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { IoConstructOutline } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
 
@@ -6,16 +7,12 @@ import Layout from '../../components/Layout';
 import Container from '../../components/Container';
 import CarouselContainer from '../../components/Projects/Carousel';
 import ProjectLink from '../../components/Projects/ProjectLink';
+import formatDate from '../../components/formatDate';
+import { ProjectPageProps } from '../../types/types';
 
-const formatDate = (date) => {
-  return new Date(date).toLocaleDateString('en-us', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
-};
-
-export default function ProjectPage({ projects: { attributes } }) {
+const ProjectPage: React.FC<ProjectPageProps> = ({
+  projects: { attributes },
+}) => {
   return (
     <>
       <Layout title={`${attributes.title} | Adif`}>
@@ -60,9 +57,9 @@ export default function ProjectPage({ projects: { attributes } }) {
       </Layout>
     </>
   );
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(`${API_URL}/api/projects`);
   const projects = await res.json();
 
@@ -76,9 +73,9 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps({ params: { slug } }) {
+export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
   const res = await fetch(
     `${API_URL}/api/projects?populate=*&filters[slug][$eq]=${slug}`
   );
@@ -88,4 +85,6 @@ export async function getStaticProps({ params: { slug } }) {
     props: { projects: projects.data[0] },
     revalidate: 10,
   };
-}
+};
+
+export default ProjectPage;

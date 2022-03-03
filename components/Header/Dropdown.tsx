@@ -4,10 +4,11 @@ import { FiCode, FiMail, FiUser } from 'react-icons/fi';
 import { Menu, Transition } from '@headlessui/react';
 
 import path from '../path';
+import { DropdownProps } from '../../types/types';
 
-export default function Dropdown({ route }) {
+const Dropdown: React.FC<DropdownProps> = ({ route }) => {
   return (
-    <div className="">
+    <>
       <Menu as="div" className="relative inline-block text-left">
         {({ open }) => (
           <>
@@ -36,7 +37,7 @@ export default function Dropdown({ route }) {
                   className="origin-top-right absolute bg-slate-50/90 font-semibold rounded-md right-0 md:left-0 mt-2 w-48 md:w-64 py-5 text-slate-900"
                 >
                   <Menu.Item>
-                    <Link href={path.home} disabled>
+                    <Link href={path.home}>
                       <a className="block px-4 py-2 text-lg hover:bg-gradient-to-r hover:from-blue-500 hover:to-sky-300 hover:text-slate-50">
                         <div className="flex flex-row justify-start">
                           <CgSmartphoneChip
@@ -84,6 +85,8 @@ export default function Dropdown({ route }) {
           </>
         )}
       </Menu>
-    </div>
+    </>
   );
-}
+};
+
+export default Dropdown;

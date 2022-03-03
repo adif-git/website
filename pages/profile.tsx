@@ -2,7 +2,9 @@ import Introduction from '../components/Profile/Introduction';
 import Skills from '../components/Profile/Skills';
 import Layout from '../components/Layout';
 import Container from '../components/Container';
-export default function profile() {
+import { NextPage } from 'next';
+
+const Profile: NextPage = () => {
   return (
     <>
       <Layout title="Profile | Adif">
@@ -20,3 +22,5 @@ export default function profile() {
     </>
   );
 }
+
+export default Profile

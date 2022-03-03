@@ -1,9 +1,13 @@
 import Image from 'next/image';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 import { CgChevronLeftO, CgChevronRightO } from 'react-icons/cg';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
-export default function CarouselContainer({ img }) {
+interface ProjectCarouselProps {
+  img: Array<any>;
+}
+
+const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ img }) => {
   return (
     <Carousel
       className="mb-10"
@@ -69,4 +73,6 @@ export default function CarouselContainer({ img }) {
       })}
     </Carousel>
   );
-}
+};
+
+export default ProjectCarousel;
