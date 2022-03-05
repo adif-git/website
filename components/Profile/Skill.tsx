@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import { SkillProps } from '../../types/types';
+import { SkillsListProps } from '../../types/types';
 
-const Skill: React.FC<SkillProps> = ({ name, Icon, list }) => {
+const Skill: React.FC<SkillsListProps> = ({ attributes, Icon }) => {
+  console.log(attributes);
   return (
     <div className="flex flex-auto flex-col mb-24">
       <div className={`flex pb-2 mb-2 mx-2 pt-5 justify-center`}>
-        {list.map((skill, key) => {
+        {attributes.list.map((skill, key) => {
           return (
             <div className="mx-2" key={key}>
               <Image
@@ -24,7 +25,7 @@ const Skill: React.FC<SkillProps> = ({ name, Icon, list }) => {
         <span
           className={`inline-block font-semibold text-center text-2xl my-auto`}
         >
-          {name}
+          {attributes.name}
         </span>
       </div>
     </div>

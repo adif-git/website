@@ -1,12 +1,9 @@
 import { HiCode, HiChip, HiCollection, HiGlobeAlt } from 'react-icons/hi';
+import { SkillsProps } from '../../types/types';
 
-import programming from './skill-list/programming';
-import webdev from './skill-list/webdev';
-import embedded from './skill-list/embedded';
-import others from './skill-list/others';
 import Skill from './Skill';
 
-const Skills: React.FC = () => {
+const Skills: React.FC<SkillsProps> = ({ skills }) => {
   return (
     <>
       <h1 className="leading-relaxed font-bold text-4xl text-center text-slate-800 mb-24">
@@ -16,10 +13,24 @@ const Skills: React.FC = () => {
         I Used & Currently Learning...
       </h1>
       <div className="flex flex-col md:flex-row flex-wrap justify-center ">
-        <Skill name="Programming" list={programming} Icon={HiCode} />
-        <Skill name="Web Development" list={webdev} Icon={HiGlobeAlt} />
-        <Skill name="Embedded Systems" list={embedded} Icon={HiChip} />
-        <Skill name="Others" list={others} Icon={HiCollection} />
+        {skills.map(({ attributes }, key) => {
+          switch (attributes.name) {
+            case 'Programming':
+              return <Skill attributes={attributes} Icon={HiCode} key={key} />;
+            case 'Web Development':
+              return (
+                <Skill attributes={attributes} Icon={HiGlobeAlt} key={key} />
+              );
+            case 'Embedded Systems':
+              return <Skill attributes={attributes} Icon={HiChip} key={key} />;
+            case 'Others':
+              return (
+                <Skill attributes={attributes} Icon={HiCollection} key={key} />
+              );
+            default:
+              return null;
+          }
+        })}
       </div>
     </>
   );

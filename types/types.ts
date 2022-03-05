@@ -8,12 +8,6 @@ export interface LayoutProps {
   children: React.ReactNode;
 }
 
-export interface SkillProps {
-  name: string;
-  list: Array<{ src: string; name: string }>;
-  Icon: IconType;
-}
-
 export interface HomeCardProps {
   title: string;
   Icon: IconType;
@@ -65,4 +59,29 @@ export interface ProjectLinkProps extends ProjectProps {
 
 export interface ProjectPageProps {
   projects: ProjectProps;
+}
+
+export interface SkillProps {
+  attributes: {
+    name: string;
+    list: {
+      src: string;
+      name: string;
+    }[];
+  };
+}
+
+export interface SkillsProps {
+  skills: {
+    attributes: {
+      name: string;
+      list: {
+        src: string;
+        name: string;
+      }[];
+    };
+  }[];
+}
+export interface SkillsListProps extends SkillProps {
+  Icon: IconType;
 }
