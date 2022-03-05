@@ -1,10 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { CgSmartphoneChip } from 'react-icons/cg';
-import { AiFillGithub, AiOutlineMail, AiFillLinkedin } from 'react-icons/ai';
 import Link from 'next/link';
+import { AiFillGithub, AiOutlineMail, AiFillLinkedin } from 'react-icons/ai';
 
-export default function Footer() {
+const Footer: React.FC = () => {
   const router = useRouter();
 
   const stylesIcon = `flex flex-row text-slate-500 hover:text-slate-50 transition ease-in-out ${
@@ -60,4 +59,6 @@ export default function Footer() {
       </div>
     </div>
   );
-}
+};
+
+export default Footer;

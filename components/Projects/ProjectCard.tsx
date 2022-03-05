@@ -1,17 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 import ProjectLink from './ProjectLink';
+import formatDate from '../formatDate';
+import { ProjectProps } from '../../types/types';
 
-export default function Project({ attributes }) {
-  const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('en-us', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
-  };
-
+const ProjectCard: React.FC<ProjectProps> = ({ attributes }) => {
   return (
     <div className="flex flex-col p-5 mb-5 bg-slate-100 rounded-xl drop-shadow-lg">
       <div className="flex mb-5 justify-center">
@@ -54,4 +49,6 @@ export default function Project({ attributes }) {
       </div>
     </div>
   );
-}
+};
+
+export default ProjectCard;

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function Logo() {
+const Logo: React.FC = () => {
   return (
     <div className="flex translate-x-5 md:translate-x-8 md:border-r-4 md:border-sky-400">
       <Image
@@ -13,4 +13,6 @@ export default function Logo() {
       />
     </div>
   );
-}
+};
+
+export default Logo;

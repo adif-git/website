@@ -1,12 +1,13 @@
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
 import { API_URL } from '../config/index';
 import ProjectCard from '../components/Projects/ProjectCard';
-import path from '../components/path';
 import Layout from '../components/Layout';
 import Container from '../components/Container';
+import path from '../components/path';
 
-export default function projects({ projects }) {
+const Projects: React.FC<{ projects: [] }> = ({ projects }) => {
   return (
     <>
       <Layout title="Adif | Projects">
@@ -34,14 +35,16 @@ export default function projects({ projects }) {
       </Layout>
     </>
   );
-}
+};
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch(`${API_URL}/api/projects?populate=*`);
   const projects = await res.json();
 
   return {
     props: { projects: projects.data },
-    revalidate: 60,
+    revalidate: 10,
   };
-}
+};
+
+export default Projects;

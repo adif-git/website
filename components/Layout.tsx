@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
+import { LayoutProps } from '../types/types';
 
-export default function Layout({
+const Layout: React.FC<LayoutProps> = ({
   title,
   keywords,
   description,
   bgColor,
   children,
-}) {
+}) => {
   return (
     <div>
       <Head>
@@ -30,11 +31,14 @@ export default function Layout({
       </div>
     </div>
   );
-}
+};
 
 Layout.defaultProps = {
   title: 'Adif | Welcome to my website',
   description:
     "Adif's Profile Page with Projects in web development, embedded systems, etc.",
   keywords: 'projects, electronics, web development, embedded system, profile,',
+  bgColor: 'bg-slate-100',
 };
+
+export default Layout;
