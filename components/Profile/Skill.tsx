@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { SkillsListProps } from '../../types/types';
 
 const Skill: React.FC<SkillsListProps> = ({ attributes, Icon }) => {
-  console.log(attributes);
   return (
     <div className="flex flex-auto flex-col mb-24">
       <div className={`flex pb-2 mb-2 mx-2 pt-5 justify-center`}>
