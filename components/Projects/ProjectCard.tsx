@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import ProjectLink from './ProjectLink';
-import formatDate from '../formatDate';
-import { ProjectProps } from '../../types/types';
+import formatDate from '@/utils/formatDate';
+import { ProjectProps } from '@/types/types';
 
 const ProjectCard: React.FC<ProjectProps> = ({ attributes }) => {
   return (

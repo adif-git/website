@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import { LayoutProps } from '../types/types';
+import { LayoutProps } from '@/types/types';
 
 const Layout: React.FC<LayoutProps> = ({
   title,

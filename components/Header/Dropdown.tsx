@@ -3,8 +3,8 @@ import { CgSmartphoneChip, CgChevronDown } from 'react-icons/cg';
 import { FiCode, FiMail, FiUser } from 'react-icons/fi';
 import { Menu, Transition } from '@headlessui/react';
 
-import path from '../path';
-import { DropdownProps } from '../../types/types';
+import path from '@/utils/path';
+import { DropdownProps } from '@/types/types';
 
 const Dropdown: React.FC<DropdownProps> = ({ route }) => {
   return (

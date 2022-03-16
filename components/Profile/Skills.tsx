@@ -1,7 +1,7 @@
 import { HiCode, HiChip, HiCollection, HiGlobeAlt } from 'react-icons/hi';
 import Link from 'next/link';
 
-import { SkillsProps } from '../../types/types';
+import { SkillsProps } from '@/types/types';
 import Skill from './Skill';
 
 const Skills: React.FC<SkillsProps> = ({ skills }) => {

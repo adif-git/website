@@ -1,12 +1,12 @@
 import { NextPage } from 'next';
 import { GetStaticProps } from 'next';
-import { API_URL } from '../config/index';
+import { API_URL } from '@/config/index';
 
-import Introduction from '../components/Profile/Introduction';
-import Skills from '../components/Profile/Skills';
-import Layout from '../components/Layout';
-import Container from '../components/Container';
-import { SkillsProps } from '../types/types';
+import Introduction from '@/components/Profile/Introduction';
+import Skills from '@/components/Profile/Skills';
+import Layout from '@/components/Layout';
+import Container from '@/components/Container';
+import { SkillsProps } from '@/types/types';
 
 const Profile: NextPage<SkillsProps> = ({ skills }) => {
   return (

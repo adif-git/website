@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import Dropdown from './Dropdown';
 import Logo from './Logo';
-import path from '../path';
+import path from '@/utils/path';
 
 const Header: React.FC = () => {
   const router = useRouter();

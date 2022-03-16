@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { NextPage } from 'next';
 import { FiCode, FiMail, FiUser } from 'react-icons/fi';
 
-import HomeCard from '../components/Home/HomeCard';
-import Layout from '../components/Layout';
-import Container from '../components/Container';
-import path from '../components/path';
+import HomeCard from '@/components/Home/HomeCard';
+import Layout from '@/components/Layout';
+import Container from '@/components/Container';
+import path from '@/utils/path';
 
 const Home: NextPage = () => {
   return (

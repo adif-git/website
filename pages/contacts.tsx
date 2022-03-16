@@ -2,8 +2,8 @@ import { NextPage } from 'next';
 import Link from 'next/link';
 import { AiFillGithub, AiOutlineMail, AiFillLinkedin } from 'react-icons/ai';
 
-import Container from '../components/Container';
-import Layout from '../components/Layout';
+import Container from '@/components/Container';
+import Layout from '@/components/Layout';
 
 const Contacts: NextPage = () => {
   return (

@@ -2,13 +2,13 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { IoConstructOutline } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
 
-import { API_URL } from '../../config/index';
-import Layout from '../../components/Layout';
-import Container from '../../components/Container';
-import CarouselContainer from '../../components/Projects/Carousel';
-import ProjectLink from '../../components/Projects/ProjectLink';
-import formatDate from '../../components/formatDate';
-import { ProjectPageProps } from '../../types/types';
+import { API_URL } from '@/config/index';
+import Layout from '@/components/Layout';
+import Container from '@/components/Container';
+import CarouselContainer from '@/components/Projects/Carousel';
+import ProjectLink from '@/components/Projects/ProjectLink';
+import formatDate from '@/utils/formatDate';
+import { ProjectPageProps } from '@/types/types';
 
 const ProjectPage: React.FC<ProjectPageProps> = ({
   projects: { attributes },

@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
-import { API_URL } from '../config/index';
-import ProjectCard from '../components/Projects/ProjectCard';
-import Layout from '../components/Layout';
-import Container from '../components/Container';
-import path from '../components/path';
+import { API_URL } from '@/config/index';
+import ProjectCard from '@/components/Projects/ProjectCard';
+import Layout from '@/components/Layout';
+import Container from '@/components/Container';
+import path from '@/utils/path';
 
 const Projects: React.FC<{ projects: [] }> = ({ projects }) => {
   return (
