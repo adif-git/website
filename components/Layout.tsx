@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta name="keywords" content={keywords} />
-        <link rel="icon" type="image/x-icon" href="/Logo.png"></link>
+        <link rel="icon" type="image/x-icon" href="/Icon.png"></link>
       </Head>
       <div className={`relative ${bgColor}`}>
         <div className="flex flex-col min-h-screen min-w-screen">
