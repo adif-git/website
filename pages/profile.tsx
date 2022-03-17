@@ -1,12 +1,11 @@
-import { NextPage } from 'next';
-import { GetStaticProps } from 'next';
-import { API_URL } from '@/config/index';
+import { NextPage, GetStaticProps } from 'next';
 
 import Introduction from '@/components/Profile/Introduction';
 import Skills from '@/components/Profile/Skills';
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
 import { SkillsProps } from '@/types/types';
+import { getAllSkills } from 'lib/skills';
 
 const Profile: NextPage<SkillsProps> = ({ skills }) => {
   return (
@@ -28,11 +27,10 @@ const Profile: NextPage<SkillsProps> = ({ skills }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${API_URL}/api/skills`);
-  const skills = await res.json();
+  const skills = await getAllSkills();
 
   return {
-    props: { skills: skills.data },
+    props: { skills },
     revalidate: 10,
   };
 };

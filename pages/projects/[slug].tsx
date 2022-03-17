@@ -2,16 +2,16 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { IoConstructOutline } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
 
-import { API_URL } from '@/config/index';
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
 import CarouselContainer from '@/components/Projects/Carousel';
 import ProjectLink from '@/components/Projects/ProjectLink';
 import formatDate from '@/utils/formatDate';
 import { ProjectPageProps } from '@/types/types';
+import { getAllProjects, getProjectBySlug } from 'lib/projects';
 
 const ProjectPage: React.FC<ProjectPageProps> = ({
-  projects: { attributes },
+  project: { attributes },
 }) => {
   return (
     <>
@@ -60,10 +60,9 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`${API_URL}/api/projects`);
-  const projects = await res.json();
+  const projects = await getAllProjects();
 
-  const paths = projects.data.map((project) => ({
+  const paths = projects.map((project) => ({
     params: {
       slug: project.attributes.slug,
     },
@@ -76,13 +75,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
-  const res = await fetch(
-    `${API_URL}/api/projects?populate=*&filters[slug][$eq]=${slug}`
-  );
-  const projects = await res.json();
+  const project = await getProjectBySlug({ slug });
 
   return {
-    props: { projects: projects.data[0] },
+    props: { project },
     revalidate: 10,
   };
 };

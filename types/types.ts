@@ -59,7 +59,7 @@ export interface ProjectLinkProps extends ProjectProps {
 }
 
 export interface ProjectPageProps {
-  projects: ProjectProps;
+  project: ProjectProps;
 }
 
 export interface SkillProps {

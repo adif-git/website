@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
-import { API_URL } from '@/config/index';
 import ProjectCard from '@/components/Projects/ProjectCard';
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
 import path from '@/utils/path';
+import { getAllProjects } from 'lib/projects';
 
 const Projects: React.FC<{ projects: [] }> = ({ projects }) => {
   return (
@@ -38,11 +38,10 @@ const Projects: React.FC<{ projects: [] }> = ({ projects }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${API_URL}/api/projects?populate=*`);
-  const projects = await res.json();
+  const projects = await getAllProjects();
 
   return {
-    props: { projects: projects.data },
+    props: { projects },
     revalidate: 10,
   };
 };

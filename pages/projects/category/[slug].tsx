@@ -1,11 +1,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Link from 'next/link';
 
-import { API_URL } from '@/config/index';
 import ProjectCard from '@/components/Projects/ProjectCard';
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
 import path from '@/utils/path';
+import { getAllCategories } from 'lib/categories';
+import { getProjectsByCategory } from 'lib/projects';
 
 const CategoryPage: React.FC<{ category: string; projects: [] }> = ({
   category,
@@ -44,10 +45,9 @@ const CategoryPage: React.FC<{ category: string; projects: [] }> = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(`${API_URL}/api/categories`);
-  const categories = await res.json();
+  const categories = await getAllCategories();
 
-  const paths = categories.data.map((category) => ({
+  const paths = categories.map((category) => ({
     params: {
       slug: category.attributes.slug,
     },
@@ -60,29 +60,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
-  const qs = require('qs');
-  const query = qs.stringify({
-    fields: ['slug', 'name'],
-    filters: {
-      slug: {
-        $eq: slug,
-      },
-    },
-    populate: {
-      projects: {
-        populate: '*',
-      },
-    },
-    encodeValuesOnly: true,
-  });
-
-  const res = await fetch(`${API_URL}/api/categories?${query}`);
-  const category = await res.json();
+  const category = await getProjectsByCategory({ slug });
 
   return {
     props: {
-      category: category.data[0].attributes.name,
-      projects: category.data[0].attributes.projects.data,
+      category: category.attributes.name,
+      projects: category.attributes.projects.data,
     },
     revalidate: 10,
   };
