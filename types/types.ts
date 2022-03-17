@@ -33,6 +33,7 @@ export interface ProjectCategoryProps {
   data: {
     attributes: {
       name: string;
+      slug: string;
     };
   };
 }
