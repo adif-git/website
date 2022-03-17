@@ -7,10 +7,10 @@ import Container from '@/components/Container';
 import CarouselContainer from '@/components/Projects/Carousel';
 import ProjectLink from '@/components/Projects/ProjectLink';
 import formatDate from '@/utils/formatDate';
-import { ProjectPageProps } from '@/types/types';
+import { ProjectProps } from '@/types/types';
 import { getAllProjects, getProjectBySlug } from 'lib/projects';
 
-const ProjectPage: React.FC<ProjectPageProps> = ({
+const ProjectPage: React.FC<{ project: ProjectProps }> = ({
   project: { attributes },
 }) => {
   return (
