@@ -6,33 +6,31 @@ import Container from '@/components/Container';
 import ProjectsFilter from '@/components/Projects/ProjectsFilter';
 import { getAllCategories } from 'lib/categories';
 import { getProjectsBySearch } from 'lib/projects';
-import { useRouter } from 'next/router';
 import { CategoriesProps, ProjectsProps } from '@/types/types';
 
 const SearchPage: React.FC<{
   projects: ProjectsProps;
   categories: CategoriesProps;
 }> = ({ projects, categories }) => {
-  const router = useRouter();
-
   return (
     <>
       <Layout title="Adif | Projects">
         <Container>
           <ProjectsFilter categories={categories} />
-          <p className="text-slate-800 text-lg mb-14">
-            Search results for{' '}
-            <span className="font-semibold text-sky-600">
-              {router.query.term}
-            </span>
-          </p>
-          {projects.length <= 0 ? (
-            <div className="text-center font-semibold ">
-              <h2 className="text-slate-700 text-3xl mb-5">
-                No projects to show
-              </h2>
-            </div>
+          {projects.length === 0 ? (
+            <h2 className="mb-10 text-lg text-center md:text-2xl bg-red-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold mr-4">
+              Search results: No project found
+            </h2>
+          ) : projects.length === 1 ? (
+            <h2 className="mb-10 text-lg text-center md:text-2xl bg-green-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold mr-4">
+              {`Search results: ${projects.length} project found`}
+            </h2>
           ) : (
+            <h2 className="mb-10 text-lg text-center md:text-2xl bg-green-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold mr-4">
+              {`Search results: ${projects.length} projects found`}
+            </h2>
+          )}
+          {projects.length >= 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               {projects.map(({ id, attributes }) => {
                 return <ProjectCard key={id} attributes={attributes} />;

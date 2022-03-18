@@ -1,4 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
 
 import ProjectCard from '@/components/Projects/ProjectCard';
 import Layout from '@/components/Layout';
@@ -11,11 +12,19 @@ const CategoryPage: React.FC<{
   categories: [];
   projects: [];
 }> = ({ categories, projects }) => {
+  const { asPath } = useRouter();
+  const categoryPath = asPath.split('/')[3];
+
   return (
     <>
       <Layout title="Adif | Projects">
         <Container>
           <ProjectsFilter categories={categories} />
+          <div className="flex justify-center mb-10 text-lg md:text-2xl bg-slate-700 p-2 md:p-4 rounded-xl text-slate-100">
+            <h2 className="uppercase font-bold mr-4">
+              {categoryPath.replace('-', ' ')}{' '}
+            </h2>
+          </div>
           {projects.length === 0 ? (
             <div className="text-center font-semibold ">
               <h2 className="text-slate-700 text-3xl mb-5">

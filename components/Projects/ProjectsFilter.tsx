@@ -6,7 +6,7 @@ const ProjectsFilter: React.FC<{ categories: CategoriesProps }> = ({
   categories,
 }) => {
   return (
-    <div className="flex justify-between flex-row mb-16 text-lg">
+    <div className="flex justify-between flex-row mb-10 text-lg">
       <div className="flex flex-row">
         <p className="hidden md:inline-block mr-5 font-semibold text-xl my-auto">
           Category:
