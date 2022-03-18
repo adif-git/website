@@ -38,7 +38,7 @@ Layout.defaultProps = {
   description:
     "Adif's Profile Page with Projects in web development, embedded systems, etc.",
   keywords: 'projects, electronics, web development, embedded system, profile,',
-  bgColor: 'bg-slate-100',
+  bgColor: 'bg-slate-200/70',
 };
 
 export default Layout;
