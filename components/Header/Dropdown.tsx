@@ -12,7 +12,7 @@ const Dropdown: React.FC<DropdownProps> = ({ route }) => {
       <Menu as="div" className="relative inline-block text-left">
         {({ open }) => (
           <>
-            <Menu.Button className="inline-flex justify-center px-4 py-2 text-4xl font-bold text-slate-600 md:hover:text-slate-50 uppercase ease-in duration-100">
+            <Menu.Button className="inline-flex justify-center -translate-x-5 md:translate-x-0 md:px-4 py-2 text-4xl font-bold text-slate-600 md:hover:text-slate-50 uppercase ease-in duration-100">
               <div className="hidden md:inline-block">
                 {route === '/'
                   ? 'homepage'
@@ -34,7 +34,7 @@ const Dropdown: React.FC<DropdownProps> = ({ route }) => {
               >
                 <Menu.Items
                   static
-                  className="origin-top-right absolute bg-slate-50/90 font-semibold rounded-md right-0 md:left-0 mt-2 w-48 md:w-64 py-5 text-slate-900"
+                  className="origin-top-right absolute bg-slate-50/90 font-semibold rounded-md -right-20 md:left-0 mt-2 w-48 md:w-64 py-5 text-slate-900"
                 >
                   <Menu.Item>
                     <Link href={path.home}>
