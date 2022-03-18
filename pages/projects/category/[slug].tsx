@@ -1,5 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
+import { GiCardboardBox } from 'react-icons/gi';
 
 import ProjectCard from '@/components/Projects/ProjectCard';
 import Layout from '@/components/Layout';
@@ -20,16 +21,17 @@ const CategoryPage: React.FC<{
       <Layout title="Adif | Projects">
         <Container>
           <ProjectsFilter categories={categories} />
-          <div className="flex justify-center mb-10 text-lg md:text-2xl bg-slate-700 p-2 md:p-4 rounded-xl text-slate-100">
+          <div className="hidden md:flex justify-center mb-10 text-lg md:text-2xl bg-slate-700 p-2 md:p-4 rounded-xl text-slate-100">
             <h2 className="uppercase font-bold mr-4">
               {categoryPath.replace('-', ' ')}{' '}
             </h2>
           </div>
           {projects.length === 0 ? (
-            <div className="text-center font-semibold ">
-              <h2 className="text-slate-700 text-3xl mb-5">
+            <div className="flex flex-col justify-center text-center items-center">
+              <GiCardboardBox className="h-36 w-36 text-blue-900" />
+              <p className="font-bold text-lg md:text-xl text-blue-900">
                 No projects to show
-              </h2>
+              </p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">

@@ -14,13 +14,13 @@ const Search: React.FC = () => {
   };
 
   return (
-    <div className="relative w-72">
+    <div className="relative flex-auto">
       <form onSubmit={handleSubmit}>
         <input
           type="search"
           name="search"
           id="search"
-          className="bg-slate-300/80 drop-shadow-sm w-72 h-10 px-5 pr-10 rounded-full text-md focus:outline-none focus:ring focus:border-slate-800"
+          className="bg-slate-300/80 drop-shadow-sm w-full h-10 px-5 md:pr-10 rounded-full text-sm md:text-base focus:outline-none focus:ring focus:border-slate-800"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder={
