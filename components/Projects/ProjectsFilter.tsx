@@ -1,4 +1,7 @@
+import Link from 'next/link';
+
 import { CategoriesProps } from '@/types/types';
+import path from '@/utils/path';
 import Dropdown from './Dropdown';
 import Search from './Search';
 
@@ -13,7 +16,14 @@ const ProjectsFilter: React.FC<{ categories: CategoriesProps }> = ({
         </p>
         <Dropdown categories={categories} />
       </div>
-      <Search />
+      <div className="flex flex-row">
+        <Search />
+        <Link href={path.projects}>
+          <a className="ml-5 my-auto text-sm tracking-wide text-sky-600 font-semibold">
+            Clear All Filters
+          </a>
+        </Link>
+      </div>
     </div>
   );
 };

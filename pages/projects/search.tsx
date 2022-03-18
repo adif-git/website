@@ -18,15 +18,15 @@ const SearchPage: React.FC<{
         <Container>
           <ProjectsFilter categories={categories} />
           {projects.length === 0 ? (
-            <h2 className="mb-10 text-lg text-center md:text-2xl bg-red-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold mr-4">
+            <h2 className="mb-10 text-lg text-center md:text-2xl bg-red-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold">
               Search results: No project found
             </h2>
           ) : projects.length === 1 ? (
-            <h2 className="mb-10 text-lg text-center md:text-2xl bg-green-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold mr-4">
+            <h2 className="mb-10 text-lg text-center md:text-2xl bg-green-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold">
               {`Search results: ${projects.length} project found`}
             </h2>
           ) : (
-            <h2 className="mb-10 text-lg text-center md:text-2xl bg-green-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold mr-4">
+            <h2 className="mb-10 text-lg text-center md:text-2xl bg-green-700 p-2 md:p-4 rounded-xl text-slate-100 uppercase font-bold">
               {`Search results: ${projects.length} projects found`}
             </h2>
           )}
