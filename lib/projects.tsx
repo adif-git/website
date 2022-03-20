@@ -9,21 +9,20 @@ export async function getAllProjects() {
   return projects.data;
 }
 
-export async function getProjectBySlug({ slug }) {
+export async function getProjectBySlug({ projectSlug }) {
   const res = await fetch(
-    `${API_URL}/api/projects?populate=*&filters[slug][$eq]=${slug}`
+    `${API_URL}/api/projects?populate=*&filters[slug][$eq]=${projectSlug}`
   );
   const project = await res.json();
 
   return project.data[0];
 }
 
-export async function getProjectsByCategory({ slug }) {
+export async function getProjectsByCategory({ categorySlug }) {
   const query = qs.stringify({
-    fields: ['slug', 'name'],
     filters: {
       slug: {
-        $eq: slug,
+        $eq: categorySlug,
       },
     },
     populate: {

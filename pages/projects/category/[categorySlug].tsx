@@ -51,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = categories.map((category) => ({
     params: {
-      slug: category.attributes.slug,
+      categorySlug: category.attributes.slug,
     },
   }));
 
@@ -61,8 +61,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
-  const category = await getProjectsByCategory({ slug });
+export const getStaticProps: GetStaticProps = async ({
+  params: { categorySlug },
+}) => {
+  const category = await getProjectsByCategory({ categorySlug });
   const categories = await getAllCategories();
 
   return {

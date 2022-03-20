@@ -64,7 +64,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = projects.map((project) => ({
     params: {
-      slug: project.attributes.slug,
+      projectSlug: project.attributes.slug,
     },
   }));
 
@@ -74,8 +74,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
-  const project = await getProjectBySlug({ slug });
+export const getStaticProps: GetStaticProps = async ({
+  params: { projectSlug },
+}) => {
+  const project = await getProjectBySlug({ projectSlug });
 
   return {
     props: { project },
