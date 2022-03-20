@@ -3,8 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import ProjectLink from './ProjectLink';
-import formatDate from '../formatDate';
-import { ProjectProps } from '../../types/types';
+import formatDate from '@/utils/formatDate';
+import { ProjectProps } from '@/types/types';
 
 const ProjectCard: React.FC<ProjectProps> = ({ attributes }) => {
   return (
@@ -25,9 +25,13 @@ const ProjectCard: React.FC<ProjectProps> = ({ attributes }) => {
         <h1 className="font-bold text-xl text-slate-700 mb-1">
           {attributes.title}
         </h1>
-        <p className="text-md font-semibold text-slate-500 mb-2 text-indigo-600">
-          {attributes.category.data.attributes.name}
-        </p>
+        <Link
+          href={`/projects/category/${attributes.category.data.attributes.slug}`}
+        >
+          <a className="text-md font-semibold text-slate-500 mb-2 opacity-60 text-indigo-600 hover:opacity-100 hover:text-indigo-700 ease-in duration-100">
+            {attributes.category.data.attributes.name}
+          </a>
+        </Link>
       </div>
       <div className="flex-auto border-t-2 border-slate-700/20 py-5 px-2">
         <p className="text-justify">{attributes.description}</p>

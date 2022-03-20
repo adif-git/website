@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Logo: React.FC = () => {
   return (
-    <div className="flex translate-x-5 md:translate-x-8 md:border-r-4 md:border-sky-400">
+    <div className="flex md:translate-x-8 md:border-r-4 md:border-sky-400">
       <Image
         src="/Logo.png"
         alt="..."

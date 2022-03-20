@@ -5,7 +5,7 @@ import {
   AiOutlineLink,
 } from 'react-icons/ai';
 
-import { ProjectLinkProps } from '../../types/types';
+import { ProjectLinkProps } from '@/types/types';
 
 const ProjectLink: React.FC<ProjectLinkProps> = ({ attributes, size }) => {
   const iconStyles =

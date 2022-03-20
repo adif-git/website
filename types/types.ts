@@ -33,10 +33,12 @@ export interface ProjectCategoryProps {
   data: {
     attributes: {
       name: string;
+      slug: string;
     };
   };
 }
 export interface ProjectProps {
+  id?: number;
   attributes: {
     title: string;
     description: string;
@@ -53,12 +55,10 @@ export interface ProjectProps {
   };
 }
 
+export interface ProjectsProps extends Array<ProjectProps> {}
+
 export interface ProjectLinkProps extends ProjectProps {
   size?: number;
-}
-
-export interface ProjectPageProps {
-  projects: ProjectProps;
 }
 
 export interface SkillProps {
@@ -72,16 +72,17 @@ export interface SkillProps {
 }
 
 export interface SkillsProps {
-  skills: {
-    attributes: {
-      name: string;
-      list: {
-        src: string;
-        name: string;
-      }[];
-    };
-  }[];
+  skills: SkillProps[];
 }
 export interface SkillsListProps extends SkillProps {
   Icon: IconType;
 }
+
+export interface CategoryProps {
+  attributes: {
+    name: string;
+    slug: string;
+  };
+}
+
+export interface CategoriesProps extends Array<CategoryProps> {}

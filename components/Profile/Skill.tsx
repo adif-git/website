@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { SkillsListProps } from '../../types/types';
+import { SkillsListProps } from '@/types/types';
 
 const Skill: React.FC<SkillsListProps> = ({ attributes, Icon }) => {
   return (

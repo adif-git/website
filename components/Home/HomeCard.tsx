@@ -1,4 +1,4 @@
-import { HomeCardProps } from '../../types/types';
+import { HomeCardProps } from '@/types/types';
 
 const HomeCard: React.FC<HomeCardProps> = ({ title, Icon }) => {
   return (

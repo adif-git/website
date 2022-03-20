@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-import { LayoutProps } from '../types/types';
+import { LayoutProps } from '@/types/types';
 
 const Layout: React.FC<LayoutProps> = ({
   title,
@@ -38,7 +38,7 @@ Layout.defaultProps = {
   description:
     "Adif's Profile Page with Projects in web development, embedded systems, etc.",
   keywords: 'projects, electronics, web development, embedded system, profile,',
-  bgColor: 'bg-slate-100',
+  bgColor: 'bg-slate-200/70',
 };
 
 export default Layout;
