@@ -9,7 +9,7 @@ import path from '@/utils/path';
 
 const Home: NextPage = () => {
   return (
-    <div className="font-mono">
+    <>
       <Layout title="Homepage | Adif" bgColor="bg-slate-900">
         <div className="my-auto">
           <Container>
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
           </Container>
         </div>
       </Layout>
-    </div>
+    </>
   );
 };
 
