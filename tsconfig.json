@@ -7,7 +7,8 @@
       "@/components/*": ["components/*"],
       "@/config/*": ["config/*"],
       "@/types/*": ["types/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/lib/*": ["lib/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

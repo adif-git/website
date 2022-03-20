@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { IoConstructOutline } from 'react-icons/io5';
+import { IoConstructOutline, IoChevronBack } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
+import { useRouter } from 'next/router';
 
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
@@ -8,17 +9,27 @@ import CarouselContainer from '@/components/Projects/Carousel';
 import ProjectLink from '@/components/Projects/ProjectLink';
 import formatDate from '@/utils/formatDate';
 import { ProjectProps } from '@/types/types';
-import { getAllProjects, getProjectBySlug } from 'lib/projects';
+import { getAllProjects, getProjectBySlug } from '@/lib/projects';
 
 const ProjectPage: React.FC<{ project: ProjectProps }> = ({
   project: { attributes },
 }) => {
+  const router = useRouter();
+
   return (
     <>
       <Layout title={`${attributes.title} | Adif`}>
         <Container>
+          <button
+            type="button"
+            onClick={() => router.back()}
+            className="flex flex-row mb-10 text-slate-500 hover:text-slate-900 ease-in duration-100"
+          >
+            <IoChevronBack className="w-7 h-7 mr-2" />
+            <p className="my-auto font-semibold text-xl">Return to projects</p>
+          </button>
           <div className="text-center md:text-left">
-            <h1 className="font-bold text-4xl md:text-6xl mb-5 leading-relaxed md:leading-normal">
+            <h1 className="font-bold text-4xl md:text-6xl mb-2 leading-relaxed md:leading-normal">
               {attributes.title}
             </h1>
             <p className="font-semibold text-indigo-500 mb-2 md:mb-5 text-xl">
