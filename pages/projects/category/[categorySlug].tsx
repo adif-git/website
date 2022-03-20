@@ -51,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = categories.map((category) => ({
     params: {
-      categorySlug: category.attributes.slug,
+      categorySlug: category.attributes.slug.toString(),
     },
   }));
 
