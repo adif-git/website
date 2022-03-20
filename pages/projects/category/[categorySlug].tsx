@@ -51,7 +51,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = categories.map((category) => ({
     params: {
+<<<<<<< HEAD:pages/projects/category/[categorySlug].tsx
       categorySlug: category.attributes.slug,
+=======
+      slug: category.attributes.slug.toString(),
+>>>>>>> 2fe60055156ad8234ed03bbc7f4b2124d2bce183:pages/projects/category/[slug].tsx
     },
   }));
 
