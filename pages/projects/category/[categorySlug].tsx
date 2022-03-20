@@ -8,10 +8,11 @@ import Container from '@/components/Container';
 import ProjectsFilter from '@/components/Projects/ProjectsFilter';
 import { getAllCategories } from 'lib/categories';
 import { getProjectsByCategory } from 'lib/projects';
+import { CategoriesProps, ProjectsProps } from '@/types/types';
 
 const CategoryPage: React.FC<{
-  categories: [];
-  projects: [];
+  categories: CategoriesProps;
+  projects: ProjectsProps;
 }> = ({ categories, projects }) => {
   const { asPath } = useRouter();
   const categoryPath = asPath.split('/')[3];
@@ -51,15 +52,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = categories.map((category) => ({
     params: {
-      categorySlug: category.attributes.slug
-        ? category.attributes.slug.toString()
-        : '',
+      categorySlug: category.attributes.slug,
     },
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
