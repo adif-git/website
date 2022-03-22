@@ -1,6 +1,5 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
-import { GiCardboardBox } from 'react-icons/gi';
 
 import ProjectCard from '@/components/Projects/ProjectCard';
 import Layout from '@/components/Layout';
@@ -9,6 +8,7 @@ import ProjectsFilter from '@/components/Projects/ProjectsFilter';
 import { getAllCategories } from 'lib/categories';
 import { getProjectsByCategory } from 'lib/projects';
 import { CategoriesProps, ProjectsProps } from '@/types/types';
+import NoProject from '@/components/Projects/NoProject';
 
 const CategoryPage: React.FC<{
   categories: CategoriesProps;
@@ -28,12 +28,7 @@ const CategoryPage: React.FC<{
             </h2>
           </div>
           {projects.length === 0 ? (
-            <div className="flex flex-col justify-center text-center items-center">
-              <GiCardboardBox className="h-36 w-36 text-blue-900" />
-              <p className="font-bold text-lg md:text-xl text-blue-900">
-                No projects to show
-              </p>
-            </div>
+            <NoProject />
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
               {projects.map(({ id, attributes }) => {
