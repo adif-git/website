@@ -24,7 +24,7 @@ const Dropdown: React.FC<{ categories: CategoriesProps }> = ({
               <div className="inline-block mr-1 my-auto capitalize">
                 {categoryPath === undefined
                   ? 'All'
-                  : categoryPath.replace('-', ' ')}
+                  : categoryPath.replace('-', ' ').split('?')[0]}
               </div>
               <AiFillCaretDown className="w-5 h-5 my-auto" />
             </Menu.Button>
