@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { IoConstructOutline, IoChevronBack } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
@@ -9,7 +9,7 @@ import CarouselContainer from '@/components/Projects/Carousel';
 import ProjectLink from '@/components/Projects/ProjectLink';
 import formatDate from '@/utils/formatDate';
 import { ProjectProps } from '@/types/types';
-import { getAllProjects, getProjectBySlug } from '@/lib/projects';
+import { getProjectBySlug } from '@/lib/projects';
 
 const ProjectPage: React.FC<{ project: ProjectProps }> = ({
   project: { attributes },
@@ -70,29 +70,13 @@ const ProjectPage: React.FC<{ project: ProjectProps }> = ({
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await getAllProjects();
-
-  const paths = projects.map((project) => ({
-    params: {
-      projectSlug: project.attributes.slug,
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({
+export const getServerSideProps: GetServerSideProps = async ({
   params: { projectSlug },
 }) => {
   const project = await getProjectBySlug({ projectSlug });
 
   return {
     props: { project },
-    revalidate: 10,
   };
 };
 

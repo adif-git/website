@@ -1,12 +1,20 @@
-import { API_URL } from '@/config/index';
+import { API_URL, PER_PAGE } from '@/config/index';
 
 const qs = require('qs');
 
-export async function getAllProjects() {
-  const res = await fetch(`${API_URL}/api/projects?populate=*`);
+export async function getAllProjects({ page }) {
+  const query = qs.stringify({
+    populate: '*',
+    pagination: {
+      page,
+      pageSize: PER_PAGE,
+    },
+    encodeValuesOnly: true,
+  });
+  const res = await fetch(`${API_URL}/api/projects?${query}`);
   const projects = await res.json();
 
-  return projects.data;
+  return projects;
 }
 
 export async function getProjectBySlug({ projectSlug }) {
@@ -18,28 +26,30 @@ export async function getProjectBySlug({ projectSlug }) {
   return project.data[0];
 }
 
-export async function getProjectsByCategory({ categorySlug }) {
+export async function getProjectsByCategory({ categorySlug, page }) {
   const query = qs.stringify({
     filters: {
-      slug: {
-        $eq: categorySlug,
+      category: {
+        slug: {
+          $eq: categorySlug,
+        },
       },
     },
-    populate: {
-      projects: {
-        populate: '*',
-      },
+    populate: '*',
+    pagination: {
+      page,
+      pageSize: PER_PAGE,
     },
     encodeValuesOnly: true,
   });
 
-  const res = await fetch(`${API_URL}/api/categories?${query}`);
-  const category = await res.json();
+  const res = await fetch(`${API_URL}/api/projects?${query}`);
+  const projects = await res.json();
 
-  return category.data[0];
+  return projects;
 }
 
-export async function getProjectsBySearch({ term }) {
+export async function getProjectsBySearch({ term, page }) {
   const query = qs.stringify({
     filters: {
       $or: [
@@ -68,11 +78,15 @@ export async function getProjectsBySearch({ term }) {
       ],
     },
     populate: '*',
+    pagination: {
+      page,
+      pageSize: PER_PAGE,
+    },
     encodeValuesOnly: true,
   });
 
   const res = await fetch(`${API_URL}/api/projects?term=${query}`);
   const projects = await res.json();
 
-  return projects.data;
+  return projects;
 }
