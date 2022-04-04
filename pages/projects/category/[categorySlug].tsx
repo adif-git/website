@@ -25,7 +25,7 @@ const CategoryPage: React.FC<{
 
   useEffect(() => {
     // Validate Page Number
-    if (page > pageCount)
+    if (page > pageCount && pageCount !== 0)
       router.push({
         pathname: path.projects,
         query: {
@@ -100,7 +100,7 @@ const CategoryPage: React.FC<{
 };
 
 export const getServerSideProps: GetServerSideProps = async ({
-  query: { page },
+  query: { page = 1 },
   params: { categorySlug },
 }) => {
   const projects = await getProjectsByCategory({ categorySlug, page });

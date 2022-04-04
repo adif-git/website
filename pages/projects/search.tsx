@@ -24,7 +24,7 @@ const SearchPage: React.FC<{
 
   useEffect(() => {
     // Validate Page Number
-    if (page > pageCount)
+    if (page > pageCount && pageCount !== 0)
       router.push({
         pathname: path.projects,
         query: {
