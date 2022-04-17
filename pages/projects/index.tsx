@@ -25,14 +25,14 @@ const Projects: React.FC<{
 
   useEffect(() => {
     // Validate Page Number
-    if (page > pageCount)
+    if (page > pageCount && pageCount !== 0)
       router.push({
         pathname: path.projects,
         query: {
           page: pageCount,
         },
       });
-  }, []);
+  }, [page, pageCount, router]);
 
   const pageArray = getPageArray({ pagination });
   const baseUrl = router.asPath.split('?')[0];
