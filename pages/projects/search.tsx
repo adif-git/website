@@ -31,7 +31,7 @@ const SearchPage: React.FC<{
           page: pageCount,
         },
       });
-  }, []);
+  }, [page, pageCount, router]);
 
   const pageArray = getPageArray({ pagination });
   const baseUrl = router.asPath.split('&')[0];

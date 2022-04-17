@@ -2,7 +2,7 @@ import { AppProps } from 'next/dist/shared/lib/router/router';
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 
-import '../styles/globals.sass';
+import '../styles/globals.scss';
 import Loading from '@/components/Loading';
 
 function MyApp({ Component, pageProps }: AppProps) {
