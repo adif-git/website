@@ -9,6 +9,7 @@ export async function getAllProjects({ page }) {
       page,
       pageSize: PER_PAGE,
     },
+    sort: ['updatedAt:desc'],
     encodeValuesOnly: true,
   });
   const res = await fetch(`${API_URL}/api/projects?${query}`);
@@ -40,6 +41,7 @@ export async function getProjectsByCategory({ categorySlug, page }) {
       page,
       pageSize: PER_PAGE,
     },
+    sort: ['updatedAt:desc'],
     encodeValuesOnly: true,
   });
 
@@ -82,6 +84,7 @@ export async function getProjectsBySearch({ term, page }) {
       page,
       pageSize: PER_PAGE,
     },
+    sort: ['updatedAt:desc'],
     encodeValuesOnly: true,
   });
 
