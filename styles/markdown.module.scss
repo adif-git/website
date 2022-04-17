@@ -1,0 +1,64 @@
+.reactMarkdown {
+  p {
+    text-align: justify;
+  }
+
+  h2 {
+    color: rgb(19, 45, 131);
+    text-decoration: underline;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    font-style: italic;
+  }
+
+  h5 {
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  figure{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    img {
+      margin: 0 auto;
+    }
+  
+    figcaption{
+      text-align: center;
+      font-weight: 500;
+      font-style: italic;
+      font-size: 1rem;
+      color: white;
+      background-color: rgba(16, 33, 74, 0.85);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+
+  table {
+    text-align: center;
+    overflow-wrap: break-word;
+    th{
+      margin: 0 auto;
+      padding: 0.5rem;
+      background-color: rgb(30 64 175);
+      color: white;
+    }
+    th:nth-child(even){
+      background-color: rgb(30, 78, 216);
+    }
+    tr:nth-child(even){
+      background-color: rgb(214, 221, 235);
+    }
+
+    td{
+      padding: 0.5rem;
+    }
+  }
+}
