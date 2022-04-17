@@ -2,14 +2,18 @@ import { GetServerSideProps } from 'next';
 import { IoConstructOutline, IoChevronBack } from 'react-icons/io5';
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
+import RemarkGfm from 'remark-gfm';
+import RehypeVideo from 'rehype-video';
+import RehypeFigure from 'rehype-figure';
+import RehypeRaw from 'rehype-raw';
 
 import Layout from '@/components/Layout';
 import Container from '@/components/Container';
-import CarouselContainer from '@/components/Projects/Carousel';
 import ProjectLink from '@/components/Projects/ProjectLink';
 import formatDate from '@/utils/formatDate';
 import { ProjectProps } from '@/types/types';
 import { getProjectBySlug } from '@/lib/projects';
+import style from '@/styles/markdown.module.scss';
 
 const ProjectPage: React.FC<{ project: ProjectProps }> = ({
   project: { attributes },
@@ -47,13 +51,21 @@ const ProjectPage: React.FC<{ project: ProjectProps }> = ({
               {attributes.description}
             </p>
           </div>
-          <div>
-            <CarouselContainer img={attributes.img.data} />
-          </div>
           {attributes.article ? (
-            <div className="w-full">
-              <article className="prose prose-slate lg:prose-xl max-w-none prose-p:text-justify">
-                <ReactMarkdown>{attributes.article}</ReactMarkdown>
+            <div className="justify-center w-full">
+              <article
+                className={`${style.reactMarkdown} prose prose-slate lg:prose-xl max-w-none`}
+              >
+                <ReactMarkdown
+                  remarkPlugins={[RemarkGfm]}
+                  rehypePlugins={[
+                    [RehypeVideo, { details: false }],
+                    RehypeRaw,
+                    RehypeFigure,
+                  ]}
+                >
+                  {attributes.article}
+                </ReactMarkdown>
               </article>
             </div>
           ) : (

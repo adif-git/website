@@ -2,10 +2,12 @@
   "name": "web",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "frontend": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "backend": "cd ../backend && npm run develop",
+    "dev": "concurrently --kill-others \"npm run backend\" \"npm run frontend\""
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
@@ -17,7 +19,10 @@
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "react-markdown": "^8.0.0",
-    "react-responsive-carousel": "^3.2.22",
+    "rehype-figure": "^1.0.1",
+    "rehype-raw": "^6.1.1",
+    "rehype-video": "^1.2.2",
+    "remark-gfm": "^3.0.1",
     "sass": "^1.49.7",
     "webfontloader": "^1.6.28"
   },
@@ -26,6 +31,7 @@
     "@types/node": "^17.0.21",
     "@types/react": "^17.0.39",
     "autoprefixer": "^10.4.2",
+    "concurrently": "^7.1.0",
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.10",
     "postcss": "^8.4.6",
