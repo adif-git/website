@@ -12,7 +12,7 @@ const Dropdown: React.FC<DropdownProps> = ({ route }) => {
       <Menu as="div" className="relative inline-block text-left">
         {({ open }) => (
           <>
-            <Menu.Button className="inline-flex justify-center -translate-x-5 md:translate-x-0 md:px-4 py-2 text-4xl font-bold text-slate-600 md:hover:text-slate-50 uppercase ease-in duration-100">
+            <Menu.Button className="inline-flex justify-center -translate-x-3 md:translate-x-0 md:px-4 py-2 text-4xl font-bold text-slate-600 md:hover:text-slate-50 uppercase ease-in duration-100">
               <div className="hidden md:inline-block">
                 {route === '/'
                   ? 'homepage'

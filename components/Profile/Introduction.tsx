@@ -1,6 +1,19 @@
+import Image from 'next/image';
+
 const Introduction: React.FC = () => {
   return (
     <div className="px-5">
+      <div className="flex justify-center mb-10">
+        <Image
+          src="/Icon.svg"
+          alt="Logo"
+          width={250}
+          height={250}
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP0Do2vBwADcgGA2WOZUwAAAABJRU5ErkJggg=="
+          placeholder="blur"
+          className="mx-auto"
+        />
+      </div>
       <h1 className="font-bold text-4xl text-center text-slate-900 underline decoration-solid decoration-4 decoration-sky-500 underline-offset-8 mb-16">
         About Me
       </h1>
